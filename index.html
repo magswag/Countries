@@ -45,7 +45,7 @@ $.getJSON(URL, function(data) {
     //data is the JSON string
    jQuery.each(data, function(index, item) {
     // do something with `item` (or `this` is also `item` if you like)
-    createCard(data[index].name, data[index].region, data[index].flag);
+    createCard(data[index].name, data[index].subregion, data[index].flag);
 });
 });
 }
