@@ -8,9 +8,10 @@
 body {
   background-color: #e2e1e0;
 }
-  img {
-    border-radius:50%;
-  }
+
+img {
+border-radius: 50%;
+}
 
 .title {
 font-size: 24px;
@@ -48,7 +49,7 @@ $.getJSON(URL, function(data) {
     //data is the JSON string
    jQuery.each(data, function(index, item) {
     // do something with `item` (or `this` is also `item` if you like)
-    createCard(data[index].name, data[index].subregion, data[index].flag);
+    createCard(data[index].name, data[index].region, data[index].flag);
 });
 });
 }
@@ -59,6 +60,7 @@ card.className = "card";
 
 var cardHolder = document.createElement("div");
 cardHolder.className = "cardHolder";
+cardHolder.style = "display:inline-block;";
 card.appendChild(cardHolder);
 
 var textName = document.createElement("h1");
@@ -71,10 +73,15 @@ textContinent.className = "subText";
 textContinent.innerHTML = continent;
 cardHolder.appendChild(textContinent);
 
+var imageHolder = document.createElement("div");
+imageHolder.className = "cardHolder";
+imageHolder.style = "text-align:right; display:inline-block; position:absolute; right:16px";
+card.appendChild(imageHolder);
+
 var flagImage = document.createElement("img");
-flagImage.style = "width:100px;";
+flagImage.style = "width:100px; height:100px; object-fit: cover; right:0; position:absolute;";
 flagImage.src = flag;
-cardHolder.appendChild(flagImage);
+imageHolder.appendChild(flagImage);
 
 document.getElementById("container").appendChild(card);
 }
